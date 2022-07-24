@@ -1,0 +1,20 @@
+{
+  "name": "proyecto-async",
+  "version": "1.0.0",
+  "description": "Se creara una landing page haciendo uso de distintas apis y claramente asincronismo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acmoral/asyncPlatzilanding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acmoral/asyncPlatzilanding/issues"
+  },
+  "homepage": "https://github.com/acmoral/asyncPlatzilanding#readme"
+}

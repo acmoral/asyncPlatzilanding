@@ -49,6 +49,18 @@ async function getCountry(){
         languagediv.append(textComponent);
     }
     // flag
-    Infobox.append(commonNameComponent,officialNameComponent,moneyComponent,capitalComponent,languagediv);
-    
+    const imageContainer  = document.createElement('img');
+    const flagElement = await countryInfo[0].flags.png;
+    imageContainer.src =flagElement;
+    imageContainer.alt = "flag";
+    imageContainer.width = "100";
+    Infobox.append(commonNameComponent,officialNameComponent,moneyComponent,capitalComponent,
+        languagediv,imageContainer);
+    //recenter map 
+    const map = initMap();
+    console.log(map);
+    const latlon = await countryInfo[0].latlng;
+    var latlng = new google.maps.LatLng(latlon[0], latlon[1]);
+    await map.setCenter(latlng);
+    await map.setZoom(6);
 }

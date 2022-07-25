@@ -1,0 +1,54 @@
+
+const API ='https://restcountries.com/v3.1/name/';
+// first let's just display the country code according to the enetered country
+async function fetchInfo(apiUrl,country){
+    try{
+        const code = await fetch(`${apiUrl}${country}`);
+        const countryCode = await code.json();
+        return countryCode;
+    }catch{
+        console.log("error occurred");
+    }
+}
+async function getCountry(){
+  
+    const input = document.querySelector('input');
+    const inputCountry = input.value;
+    const countryInfo = await fetchInfo(API,inputCountry);
+    const Infobox = document.getElementById("Infobox");
+    Infobox.textContent = '';
+    //name of the country
+    const commonName = await countryInfo[0].name.common;
+    const commonNameComponent = document.createElement('p')
+    commonNameComponent.textContent = commonName;
+    //official of the country
+    const officialName = await countryInfo[0].name.official;
+    const officialName2 = await Object.values(countryInfo[0].name.nativeName)[0].official;
+    const officialNameComponent = document.createElement('p')
+    officialNameComponent.textContent =  officialName+'|'+officialName2;
+    //currency
+    const currency = await Object.entries(countryInfo[0].currencies);
+    const abbreviation = await currency[0][0];
+    console.log(abbreviation);
+    const currencyName = await currency[0][1].name;
+    console.log(currencyName);
+    const moneyComponent = document.createElement('p');
+    const currencySymbol = await currency[0][1].symbol;
+    moneyComponent.textContent = `${abbreviation} | ${currencyName} | ${currencySymbol}`;
+    //capital
+    const capital = await countryInfo[0].capital[0];
+    const capitalComponent = document.createElement('p')
+    capitalComponent.textContent = capital;
+    //language
+    const languages = await Object.entries(countryInfo[0].languages);
+    const languagediv = document.createElement('div');
+    console.log(languages);
+    for(let language of languages ){
+        const textComponent = document.createElement('p')
+        textComponent.textContent = `${language[0]}  |  ${language[1]}`;
+        languagediv.append(textComponent);
+    }
+    // flag
+    Infobox.append(commonNameComponent,officialNameComponent,moneyComponent,capitalComponent,languagediv);
+    
+}

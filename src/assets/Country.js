@@ -1,4 +1,4 @@
-
+const JsonAPi = "http://inmagik.github.io/world-countries/countries/"
 const API ='https://restcountries.com/v3.1/name/';
 // first let's just display the country code according to the enetered country
 async function fetchInfo(apiUrl,country){
@@ -11,7 +11,10 @@ async function fetchInfo(apiUrl,country){
     }
 }
 async function getCountry(){
-  
+    map.data.forEach(function(feature) {
+        // If you want, check here for some constraints.
+        map.data.remove(feature);
+    });
     const input = document.querySelector('input');
     const inputCountry = input.value;
     const countryInfo = await fetchInfo(API,inputCountry);
@@ -61,4 +64,14 @@ async function getCountry(){
     var latlng = new google.maps.LatLng(latlon[0], latlon[1]);
     await map.setCenter(latlng);
     await map.setZoom(5);
+
+    // hoping to get the geoJson
+    const countryCode = await  countryInfo[0].cca3
+    const path = await `${JsonAPi}${countryCode}.geojson`;
+    map.data.loadGeoJson(path);
+    map.data.setStyle({
+        fillColor: `#${Math.floor(Math.random()*16777215).toString(16)}`,
+        strokeWeight: 2,
+        strokeColor:"transparent"
+      });
 }

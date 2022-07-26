@@ -9,7 +9,7 @@ html{
     font-size: 64.5%;
 }
 header #logo{
-    margin:10px;
+    margin:10px 10px 10px 38px;
 }
 header #logo:hover{
     zoom: 1.2;
@@ -71,9 +71,37 @@ main #map{
     z-index: 1;
 }
 main .about{
-    background-color: coral;
+    background-color: rgb(31, 27, 46);
     width: 100vw;
     height: 86vh;
+    display: block;
+    position: absolute;
+    top:0vh;
+    padding: 0px 0px 0px 50px;
+    color:white;
+}
+main .about h1{
+    font-size: xx-large;
+}
+main .about p{
+    width: 60vw;
+    font-size: 14px;
+}
+main .about img{
+    border-radius: 50%;
+    background-color: rgb(18, 16, 27);
+    position: absolute;
+    top: 50px;;
+    left: 70vw;
+    padding: 0;
+    margin:0;
+}
+main .about img:hover{
+    zoom:1.1;
+    top:45px;
+    margin: 0;
+    left:64vw;
+    padding: 0;
 }
 input{
     width: 18vw;

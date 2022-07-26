@@ -10,6 +10,7 @@
 </head>
 <body>
   <header>
+    <img src="./assets/earth.png" width="35" height="35" id="logo"/>
     <h1>
       Countries of the world
     </h1>
@@ -21,11 +22,12 @@
   </header>
   <main>
     <div id="side-bar">
-      <input type="text" placeholder="country">
-      <button onclick="getCountry()">Go</button>
+      <div id="input-section"><input type="text" placeholder="country">
+        <button onclick="getCountry()">Go</button></div>
       <div id="Infobox"></div>
-    </div>
-    <div id="map"></div>
+  </div>
+    <div id="map">
+      </div>
   </main>
   <footer>
     <p>
@@ -34,7 +36,7 @@
   </footer>
   <script src="./assets/Country.js"></script>
   <script src="./assets/Map.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg_DdqUD0lC652KKVomNmjxl4i87pntLE&callback=initMap">
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAjw5c-qR3QKQwgQAK8UqAbKQHKUFtaNs&callback=initMap">
   </script>
 </body>
 </html>

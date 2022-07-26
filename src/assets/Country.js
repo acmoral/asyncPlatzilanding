@@ -57,10 +57,8 @@ async function getCountry(){
     Infobox.append(commonNameComponent,officialNameComponent,moneyComponent,capitalComponent,
         languagediv,imageContainer);
     //recenter map 
-    const map = initMap();
-    console.log(map);
     const latlon = await countryInfo[0].latlng;
     var latlng = new google.maps.LatLng(latlon[0], latlon[1]);
     await map.setCenter(latlng);
-    await map.setZoom(6);
+    await map.setZoom(5);
 }

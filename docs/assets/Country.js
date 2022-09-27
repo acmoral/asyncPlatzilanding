@@ -1,4 +1,4 @@
-const JsonAPi = "https://inmagik.github.io/world-countries/countries/"
+const JsonAPi = "http://inmagik.github.io/world-countries/countries/"
 const API ='https://restcountries.com/v3.1/name/';
 // first let's just display the country code according to the enetered country
 async function fetchInfo(apiUrl,country){
